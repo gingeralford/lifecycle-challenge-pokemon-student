@@ -15,3 +15,15 @@
 .App-link {
   color: #61dafb;
 }
+
+/* #grabImage {
+  display:block;
+  text-align: center;
+} */
+
+.pokeWrap {
+  position: static;
+  display: block;
+  margin: auto;
+  padding: 0 0 0 0;
+}

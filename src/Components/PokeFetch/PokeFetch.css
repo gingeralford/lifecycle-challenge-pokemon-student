@@ -20,12 +20,13 @@
 .timer{ 
   font-family: 'Press Start 2P', cursive;
   font-size: 3em;
+  padding-top: 40px;
 }
 
 .pokeWrap{
   align-self: flex-start;
-  margin-top: -100px;
-  margin-left: 18vw;
+  /* margin-top: -100px;
+  margin-left: 18vw; */
 }
 
 .pokeImg {

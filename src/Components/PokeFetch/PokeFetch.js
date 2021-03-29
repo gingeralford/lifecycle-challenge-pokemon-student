@@ -7,28 +7,24 @@ class PokeFetch extends Component {
     super()
     this.state = {
       pokeInfo: '',
-      pokeSprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png',
+      pokeSprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
       pokeName: 'Ditto',
-      // timer: "",
-      secondsRemaining: 10,
-      // _this: this
+      secondsRemaining: 10
     }
-    // this.timer = this.timer.bind(this);
   }
   
-  timer = () => setInterval(() => {
+  timer() {
+    let dumbTimer = setInterval(() => {
     if(this.state.secondsRemaining <= 0){
       console.log(this.state.secondsRemaining);
       document.getElementById("countdown").innerHTML = "Time's up!";
       this.setState({ showPokemon: true, secondsRemaining: 0 });
-      clearInterval(this.timer)
-
+      clearInterval(dumbTimer);
     } else {
       document.getElementById("countdown").innerHTML = this.state.secondsRemaining + " seconds remaining";
       this.setState({secondsRemaining: this.state.secondsRemaining - 1});
     }
-    // timeleft -= 1;
-  }, 1000);
+  }, 1000)};
 
   fetchPokemon() {
     let min = Math.ceil(1);
@@ -57,15 +53,6 @@ class PokeFetch extends Component {
       this.timer();
       console.log("starting timer")
     }
-    if(this.state.secondsRemaining !== prevState.secondsRemaining){
-      if(this.state.secondsRemaining <= 0){
-        console.log("should clear")
-        clearInterval(this.timer)
-      }
-    }
-  }
-  componentWillUnmount() {
-    clearInterval(this.timer)
   }
 
 
@@ -77,7 +64,6 @@ class PokeFetch extends Component {
         {/* <h1 className={'timer'} >Timer Display</h1> */}
         <div id="countdown" className="timer" style={{ fontSize: "2em"}}></div>
         <div className={'pokeWrap'}>
-          {/* <img className={'pokeImg'} alt="a pokemon" id="grabImage" src={this.state.pokeSprite} style={{ filter: "brightness(0%)"}}/> */}
 
           {/* Option to show pokemon based on ternary */}
           <img className={'pokeImg'} alt="a pokemon" id="grabImage" src={this.state.pokeSprite} style={this.state.showPokemon ? { filter: "brightness(100%)"} : { filter: "brightness(0%)"}}/>
